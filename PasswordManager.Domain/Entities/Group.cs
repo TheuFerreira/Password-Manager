@@ -4,25 +4,25 @@ namespace PasswordManager.Domain.Entities
 {
     public sealed class Group : Entity
     {
-        public string Name { get; private set; } = string.Empty;
+        public string Title { get; private set; } = string.Empty;
 
-        public Group(string name)
+        public Group(string title)
         {
-            Validate(name);
+            Validate(title);
         }
 
-        public Group(int id, string name) : this(name)
+        public Group(int id, string title) : this(title)
         {
             DomainExceptionValidation.When(id < 0, ValidationCodes.InvalidId);
 
             Id = id;
         }
 
-        private void Validate(string name)
+        private void Validate(string title)
         {
-            DomainExceptionValidation.When(string.IsNullOrEmpty(name), ValidationCodes.InvalidName);
+            DomainExceptionValidation.When(string.IsNullOrEmpty(title), ValidationCodes.InvalidTitle);
 
-            Name = name;
+            Title = title;
         }
     }
 }
