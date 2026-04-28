@@ -21,7 +21,20 @@ namespace PasswordManager.Domain.Entities
         public Item(int id, string title, string password) : this(title, password)
         {
             DomainExceptionValidation.When(id < 0, ValidationCodes.InvalidId);
+
             Id = id;
+        }
+
+        public void Update(int id, string title, string password, int groupId, IEnumerable<int> additionalInfosIds)
+        {
+            Validate(title, password);
+
+            DomainExceptionValidation.When(id < 0, ValidationCodes.InvalidId);
+            DomainExceptionValidation.When(groupId <= 0, ValidationCodes.InvalidId);
+
+            Id = id;
+            GroupId = groupId;
+            AdditionalInfosIds = additionalInfosIds;
         }
 
         private void Validate(string title, string password)
