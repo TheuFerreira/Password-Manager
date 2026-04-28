@@ -25,7 +25,6 @@ namespace PasswordManager.Domain.Entities
             Validate(title);
 
             Id = id;
-            Title = title;
         }
 
         private void Validate(string title)
