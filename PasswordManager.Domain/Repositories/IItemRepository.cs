@@ -4,9 +4,11 @@ namespace PasswordManager.Domain.Repositories
 {
     public interface IItemRepository
     {
-        Task<IEnumerable<Item>> GetAllByGroupAsync(int groupId);
+        Task<Item> GetById(int id);
+        Task<IEnumerable<Item>> GetAllByGroupAsync(Group group);
+
         Task<Item> CreateAsync(Item item);
         Task<Item> UpdateAsync(Item item);
-        Task<Item> DeleteAsync(int id);
+        Task<Item> DeleteAsync(Item item);
     }
 }

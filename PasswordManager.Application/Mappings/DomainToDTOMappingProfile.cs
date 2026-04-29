@@ -9,6 +9,7 @@ namespace PasswordManager.Application.Mappings
         public DomainToDTOMappingProfile()
         {
             CreateMap<Group, GroupDTO>().ReverseMap();
+            CreateMap<Item, ItemDTO>().ReverseMap();
         }
     }
 }
