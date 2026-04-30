@@ -10,6 +10,7 @@ namespace PasswordManager.Application.Mappings
         {
             CreateMap<Group, GroupDTO>().ReverseMap();
             CreateMap<Item, ItemDTO>().ReverseMap();
+            CreateMap<AdditionalInfo, AdditionalInfoDTO>().ReverseMap();
         }
     }
 }
