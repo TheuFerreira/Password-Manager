@@ -7,6 +7,6 @@ namespace PasswordManager.Domain.Repositories
         Task<IEnumerable<AdditionalInfo>> GetAllByItemAsync(int itemId);
         Task<AdditionalInfo> CreateAsync(AdditionalInfo additionalInfo);
         Task<AdditionalInfo> UpdateAsync(AdditionalInfo additionalInfo);
-        Task<AdditionalInfo> DeleteAsync(int id);
+        Task<AdditionalInfo> DeleteAsync(AdditionalInfo additionalInfo);
     }
 }
