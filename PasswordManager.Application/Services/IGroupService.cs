@@ -6,7 +6,7 @@ namespace PasswordManager.Application.Services
     {
         Task<IEnumerable<GroupDTO>> GetAllAsync();
         Task<GroupDTO> CreateAsync(GroupDTO group);
-        Task<GroupDTO> UpdateAsync(GroupDTO group);
-        Task<GroupDTO> DeleteAsync(int id);
+        Task<GroupDTO?> UpdateAsync(GroupDTO group);
+        Task<GroupDTO?> DeleteAsync(int id);
     }
 }

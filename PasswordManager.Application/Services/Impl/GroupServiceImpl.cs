@@ -25,7 +25,7 @@ namespace PasswordManager.Application.Services.Impl
             return dtoResult;
         }
 
-        public async Task<GroupDTO> UpdateAsync(GroupDTO group)
+        public async Task<GroupDTO?> UpdateAsync(GroupDTO group)
         {
             var entity = mapper.Map<Group>(group);
             var entityResult = await groupRepository.UpdateAsync(entity);
@@ -33,9 +33,11 @@ namespace PasswordManager.Application.Services.Impl
             return dtoResult;
         }
 
-        public async Task<GroupDTO> DeleteAsync(int id)
+        public async Task<GroupDTO?> DeleteAsync(int id)
         {
             var entity = await groupRepository.GetById(id);
+            if (entity == null) return null;
+
             var entityResult = await groupRepository.DeleteAsync(entity);
             var dtoResult = mapper.Map<GroupDTO>(entityResult);
             return dtoResult;
