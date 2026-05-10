@@ -40,10 +40,10 @@ namespace PasswordManager.Domain.Tests
         {
             Group group = new(0, "Group");
 
-            Action a1 = () => group.Update(0, "Group Updated");
+            Action a1 = () => group.Update("Group Updated");
             a1.Should().NotThrow<DomainExceptionValidation>();
 
-            Action a2 = () => group.Update(1, "Group Updated 2");
+            Action a2 = () => group.Update("Group Updated 2");
             a2.Should().NotThrow<DomainExceptionValidation>();
         }
 
@@ -52,13 +52,10 @@ namespace PasswordManager.Domain.Tests
         {
             Group group = new(0, "Group");
 
-            Action a1 = () => group.Update(-1, "Group Updated");
-            a1.Should().Throw<DomainExceptionValidation>();
-
-            Action a2 = () => group.Update(1, string.Empty);
+            Action a2 = () => group.Update(string.Empty);
             a2.Should().Throw<DomainExceptionValidation>();
 
-            Action a3 = () => group.Update(1, null);
+            Action a3 = () => group.Update(null);
             a3.Should().Throw<DomainExceptionValidation>();
         }
     }

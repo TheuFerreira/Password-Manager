@@ -18,13 +18,9 @@ namespace PasswordManager.Domain.Entities
             Id = id;
         }
 
-        public void Update(int id, string title)
+        public void Update(string title)
         {
-            DomainExceptionValidation.When(id < 0, ValidationCodes.InvalidId);
-            
             Validate(title);
-
-            Id = id;
         }
 
         private void Validate(string title)
